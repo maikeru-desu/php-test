@@ -16,7 +16,7 @@
 $database = 'nba2019';
 include('include/utils.php');
 require_once('vendor/autoload.php');
-require_once('classes/Controller.php');
+require_once('controllers/PlayerController.php');
 
 // process the args
 $args = collect($_REQUEST);
@@ -26,6 +26,8 @@ if (!$type) {
     exit('Please specify a type');
 }
 
-$controller = new Controller($args);
+$controller = new PlayerController($args);
 
-echo $controller->export($type, $format);
+$content = $controller->export($type, $format);
+
+require 'views/layouts/main.php';

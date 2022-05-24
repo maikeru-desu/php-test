@@ -17,6 +17,6 @@
     }
 </style>
 <body>
-    <?php $content ?>
+    <?php echo $content ?>
 </body>
 </html>
